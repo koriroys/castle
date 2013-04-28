@@ -1,25 +1,26 @@
 [user]
-  name = Tony Coconate
-  email = me@tonycoconate.com
+  name = Kori Roys
+  email = kori@koriroys.com
 [github]
-  user = tonycoco
+  user = koriroys
 [apply]
   whitespace = nowarn
 [alias]
-  co = checkout
-  cob = checkout -b
-  st = status
+  amend = !git log -n 1 --pretty=tformat:%s%n%n%b | git commit -F - --amend
   br = branch
   ci = commit -a -m
-  pom = push origin master
-  phm = push heroku master
-  pdm = push devmynd master
-  pl = pull
+  co = checkout
+  cob = checkout -b
+  create-branch = !sh -c 'git push origin HEAD:refs/heads/$1 && git fetch origin && git branch --track $1 origin/$1 && cd . && git checkout $1' -
+  delete-branch = !sh -c 'git push origin :refs/heads/$1 && git remote prune origin && git branch -D $1'
   di = diff --color-words
-  weekreport = shortlog --since=1.weeks --author=tonycoco
   gl = log --graph --abbrev-commit --pretty=oneline --decorate
-  this = !git init && git add . && git commit -m "initial commit"
-  amend = !git log -n 1 --pretty=tformat:%s%n%n%b | git commit -F - --amend
+  ll = log --graph --pretty=format:'%Cred%h%Creset - %C(yellow)%d%Cgreen(%cr) %C(bold blue)<%an> %Creset %s' --abbrev-commit --date=relative --max-count=100
+  lla = log --graph --pretty=format:'%Cred%h%Creset - %C(yellow)%d%Cgreen(%cr) %C(bold blue)<%an> %Creset %s' --abbrev-commit --date=relative --all
+  pdm = push devmynd master
+  pom = push origin master
+  st = status
+  weekreport = shortlog --since=1.weeks --author=koriroys
 [color]
   ui = true
 [merge]

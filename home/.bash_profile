@@ -1,23 +1,46 @@
 # Editors
-export EDITOR="subl -n"
-export BUNDLER_EDITOR="subl -n"
+export EDITOR="vim"
+export BUNDLER_EDITOR="vim"
 
 # Aliases
 alias q="exit"
+alias ll='ls -lahGT'
 alias tree="tree --dirsfirst -lFC"
+alias t1="tree --dirsfirst -lFCL 1"
 alias grep="grep --color=auto"
-alias s="cd ~/Sites"
 alias be="bundle exec"
 alias rst="touch tmp/restart.txt && echo "Restarted.""
 alias tlog="tail -f log/development.log"
-alias cuke="be rake cucumber"
-alias rspc="be rake spec"
+alias bers="be rake spec"
 alias memz="top -o vsize"
 alias cpu="top -o cpu"
-alias fml="be foreman start -f Procfile.local"
-alias dev="cd ~/Development"
-alias rb="dev && cd ruby"
-alias js="dev && cd javascript"
+alias fml="foreman start -f Procfile.local"
+alias dev="cd ~/source/devmynd"
+alias reload='source ~/.bash_profile'
+
+# Git Aliases
+alias gs='git status'
+alias ga='git add --all'
+alias gc='git commit'
+alias gl='git lg'
+alias gd='git diff'
+alias gdc='git diff --cached'
+alias gp='git push'
+alias gr='git pull --rebase'
+alias gv='git remote -v'
+
+# Alias hub as git per hub readme
+eval "$(hub alias -s)"
+
+# Git Autocomplete
+if [ -f ~/.git-completion.bash ]; then
+  source ~/.git-completion.bash
+fi
+
+# Git prompt for PS1
+if [ -f ~/.git-prompt.sh ]; then
+  source ~/.git-prompt.sh
+fi
 
 # Rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
