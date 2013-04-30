@@ -1,1 +1,6 @@
-set scrolljump=10 " Lines to scroll when cursor leaves screen
+set scrolljump=10     " Lines to scroll when cursor leaves screen
+set tabstop=2         " An indentation every two columns
+set shiftwidth=2      " Use indents of 4 spaces
+
+" Remove trailing whitespaces and ^M chars
+autocmd FileType ruby autocmd BufWritePre <buffer> call StripTrailingWhitespace()

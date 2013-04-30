@@ -1,3 +1,5 @@
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+
 # Editors
 export EDITOR="vim"
 export BUNDLER_EDITOR="vim"
@@ -17,12 +19,13 @@ alias cpu="top -o cpu"
 alias fml="foreman start -f Procfile.local"
 alias dev="cd ~/source/devmynd"
 alias reload='source ~/.bash_profile'
+alias pi='rspec spec/'
 
 # Git Aliases
 alias gs='git status'
 alias ga='git add --all'
 alias gc='git commit'
-alias gl='git lg'
+alias gl='git gl'
 alias gd='git diff'
 alias gdc='git diff --cached'
 alias gp='git push'
@@ -41,6 +44,13 @@ fi
 if [ -f ~/.git-prompt.sh ]; then
   source ~/.git-prompt.sh
 fi
+
+# Aliases for services
+alias redis_start="redis-server /usr/local/etc/redis.conf"
+alias pg_start="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
+alias pg_stop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
+alias mysql_start="mysql.server start"
+alias mysql_stop="mysql.server stop"
 
 # Rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
