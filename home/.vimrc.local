@@ -2,5 +2,12 @@ set scrolljump=10     " Lines to scroll when cursor leaves screen
 set tabstop=2         " An indentation every two columns
 set shiftwidth=2      " Use indents of 2 spaces
 
+set synmaxcol=300
+
+" show subtle indent guides
+highlight IndentGuidesEven ctermbg=235 gui=bold
+let g:indent_guides_auto_colors = 0
+let g:indent_guides_enable_on_vim_startup = 1
+
 " Remove trailing whitespaces and ^M chars
 autocmd FileType ruby autocmd BufWritePre <buffer> call StripTrailingWhitespace()

@@ -1,5 +1,9 @@
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
+if [ -f ~/.env_vars ]; then
+  source ~/.env_vars
+fi
+
 # Editors
 export EDITOR="vim"
 export BUNDLER_EDITOR="vim"
@@ -51,6 +55,7 @@ alias pg_start="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/ser
 alias pg_stop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
 alias mysql_start="mysql.server start"
 alias mysql_stop="mysql.server stop"
+alias rem="redis-cli MONITOR"
 
 # Rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
@@ -68,6 +73,11 @@ fi
 # Bash Prompt
 if [ -f ~/.bash_prompt ]; then
   source ~/.bash_prompt
+fi
+
+# Stuff that shouldn't get added to a repo
+if [ -f ~/.private_stuff ]; then
+  source ~/.private_stuff
 fi
 
 # Terminal
