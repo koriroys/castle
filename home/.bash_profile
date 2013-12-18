@@ -1,12 +1,17 @@
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
+# Bash completion
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
+
 if [ -f ~/.env_vars ]; then
   source ~/.env_vars
 fi
 
 # Editors
 export EDITOR="vim"
-export BUNDLER_EDITOR="vim"
+export BUNDLER_EDITOR="subl"
 
 # Aliases
 alias q="exit"
@@ -24,17 +29,22 @@ alias fml="foreman start -f Procfile.local"
 alias dev="cd ~/source/devmynd"
 alias reload='source ~/.bash_profile'
 alias pi='rspec spec/'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias wtf='echo $?'
 
 # Git Aliases
 alias gs='git status'
 alias ga='git add --all'
+alias gap='git add --all -p'
 alias gc='git commit'
-alias gl='git gl'
+alias gl='git lga'
 alias gd='git diff'
 alias gdc='git diff --cached'
 alias gp='git push'
 alias gr='git pull --rebase'
 alias gv='git remote -v'
+alias gb='git branch'
 
 # Alias hub as git per hub readme
 eval "$(hub alias -s)"
