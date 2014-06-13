@@ -10,8 +10,10 @@ if [ -f ~/.env_vars ]; then
 fi
 
 # Editors
+alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
 export EDITOR="vim"
-export BUNDLER_EDITOR="subl"
+export BUNDLER_EDITOR="vim"
+# export BUNDLER_EDITOR="subl"
 
 # Aliases
 alias q="exit"
@@ -27,6 +29,7 @@ alias memz="top -o vsize"
 alias cpu="top -o cpu"
 alias fml="foreman start -f Procfile.local"
 alias dev="cd ~/source/devmynd"
+alias incoming="exec $SHELL -l"
 alias reload='source ~/.bash_profile'
 alias pi='rspec spec/'
 alias ..='cd ..'
