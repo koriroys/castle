@@ -33,3 +33,5 @@
   editor = vim
 [push]
   default = upstream
+[rerere]
+  enabled = true

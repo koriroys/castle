@@ -25,6 +25,7 @@ alias be="bundle exec"
 alias rst="touch tmp/restart.txt && echo "Restarted.""
 alias tlog="tail -f log/development.log"
 alias bers="be rake spec"
+alias berslow="be rspec --tag ~slow"
 alias memz="top -o vsize"
 alias cpu="top -o cpu"
 alias fml="foreman start -f Procfile.local"
@@ -49,9 +50,6 @@ alias gr='git pull --rebase'
 alias gv='git remote -v'
 alias gb='git branch'
 
-# Alias hub as git per hub readme
-eval "$(hub alias -s)"
-
 # Git Autocomplete
 if [ -f ~/.git-completion.bash ]; then
   source ~/.git-completion.bash
@@ -73,6 +71,9 @@ alias rem="redis-cli MONITOR"
 # Rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+
+# Alias hub as git per hub readme
+eval "$(hub alias -s)"
 
 # Bash Completion
 if [ -f `brew --prefix`/etc/bash_completion ]; then
