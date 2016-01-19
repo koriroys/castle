@@ -1,5 +1,9 @@
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+HISTCONTROL=ignoreboth
+
 # Bash completion
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
@@ -12,8 +16,8 @@ fi
 # Editors
 alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
 export EDITOR="vim"
-export BUNDLER_EDITOR="vim"
-# export BUNDLER_EDITOR="subl"
+# export BUNDLER_EDITOR="vim"
+export BUNDLER_EDITOR="sublime"
 
 # Aliases
 alias q="exit"
@@ -38,17 +42,17 @@ alias ...='cd ../..'
 alias wtf='echo $?'
 
 # Git Aliases
-alias gs='git status'
 alias ga='git add --all'
 alias gap='git add --all -p'
+alias gb='git branch'
 alias gc='git commit'
-alias gl='git lga'
 alias gd='git diff'
 alias gdc='git diff --cached'
+alias gl='git lga'
 alias gp='git push'
 alias gr='git pull --rebase'
+alias gs='git status'
 alias gv='git remote -v'
-alias gb='git branch'
 
 # Git Autocomplete
 if [ -f ~/.git-completion.bash ]; then
@@ -62,6 +66,7 @@ fi
 
 # Aliases for services
 alias redis_start="redis-server /usr/local/etc/redis.conf"
+alias mongo_start="mongod --config /usr/local/etc/mongod.conf"
 alias pg_start="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
 alias pg_stop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
 alias mysql_start="mysql.server start"
